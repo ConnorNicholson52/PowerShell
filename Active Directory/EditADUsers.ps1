@@ -1,7 +1,7 @@
 # Function to enable, disable, reset password, or delete AD users.
 function Edit-ADUser {
 
-    $userName = Read-Host "Enter the user account name"
+    $userName = Read-Host "Enter the user SamAccountName"
 
     $user = Get-ADUser -Filter "SamAccountName -eq '$userName'"
 
