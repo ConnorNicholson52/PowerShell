@@ -9,7 +9,7 @@ function Create-ADUser {
         [string]$SamAccountName,
 
         [Parameter(Mandatory = $true)]
-        [string]$Password,
+        [SecureString]$Password,
 
         [Parameter(Mandatory = $true)]
         [string]$UserPrincipalName,
@@ -26,9 +26,6 @@ function Create-ADUser {
         [Parameter(Mandatory = $true)]
         [string]$Office
     )
-
-    # Takes a plaintext input and converts it into a secure string.
-    $securePassword = ConvertTo-SecureString $Password -AsPlainText -Force
 
     # Passes the given variables into an array to be passed into New-ADUser
     $userParams = @{
